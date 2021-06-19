@@ -1728,7 +1728,7 @@ void Microenvironment::x_diffusion_GPU_3D(){
 	int y_size = mesh.y_coordinates.size();
 	int z_size = mesh.z_coordinates.size();
 
-	#pragma acc parallel loop present(gpu_p_density_vectors, sizes_p_density_vectors, gpu_thomas_denomx, gpu_thomas_i_jump, gpu_thomas_cx) 
+	#pragma acc parallel present(gpu_p_density_vectors, sizes_p_density_vectors, gpu_thomas_denomx, gpu_thomas_i_jump, gpu_thomas_cx) 
 	{
 	#pragma acc loop independent gang
 	for ( int k= 0; k < z_size; k++ )
@@ -1775,7 +1775,7 @@ void Microenvironment::y_diffusion_GPU_3D(){
 	int y_size = mesh.y_coordinates.size();
 	int z_size = mesh.z_coordinates.size();
 
-	#pragma acc parallel loop present(gpu_p_density_vectors, sizes_p_density_vectors, gpu_thomas_denomy, gpu_thomas_j_jump, gpu_thomas_cy) 
+	#pragma acc parallel present(gpu_p_density_vectors, sizes_p_density_vectors, gpu_thomas_denomy, gpu_thomas_j_jump, gpu_thomas_cy) 
 	{
 	#pragma acc loop independent gang
 	for ( int k= 0; k < z_size; k++ )
@@ -1822,7 +1822,7 @@ void Microenvironment::z_diffusion_GPU_3D(){
 	int y_size = mesh.y_coordinates.size();
 	int z_size = mesh.z_coordinates.size();
 
-	#pragma acc parallel loop present(gpu_p_density_vectors, sizes_p_density_vectors, gpu_thomas_denomz, gpu_thomas_k_jump, gpu_thomas_cz) 
+	#pragma acc parallel present(gpu_p_density_vectors, sizes_p_density_vectors, gpu_thomas_denomz, gpu_thomas_k_jump, gpu_thomas_cz) 
 	{	
 	#pragma acc loop independent gang
 	for ( int j= 0; j < y_size; j++ )
